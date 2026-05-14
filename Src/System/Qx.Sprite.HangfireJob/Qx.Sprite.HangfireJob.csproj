@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Core" Version="1.8.*" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Qx.Sprite.Core\Qx.Sprite.Core.csproj" />
+    <ProjectReference Include="..\Qx.Sprite.ObjectMapper.Mapster\Qx.Sprite.ObjectMapper.Mapster.csproj" />
+  </ItemGroup>
+</Project>

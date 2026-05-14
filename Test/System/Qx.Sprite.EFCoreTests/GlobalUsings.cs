@@ -1,0 +1,12 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Hosting;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore;
+global using Qx.Sprite.Core;
+global using Qx.Sprite.EFCore;
+global using Xunit;

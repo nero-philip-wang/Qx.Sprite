@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Qx.Sprite.EFCoreTests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:63689;http://localhost:63690"
+    }
+  }
+}

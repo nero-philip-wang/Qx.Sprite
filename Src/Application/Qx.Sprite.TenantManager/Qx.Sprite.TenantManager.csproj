@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="NodaTime" Version="3.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\System\Qx.Sprite.Cap\Qx.Sprite.Cap.csproj" />
+    <ProjectReference Include="..\..\System\Qx.Sprite.DDD\Qx.Sprite.DDD.csproj" />
+    <ProjectReference Include="..\..\System\Qx.Sprite.EFCore\Qx.Sprite.EFCore.csproj" />
+    <ProjectReference Include="..\..\System\Qx.Sprite.Mvc\Qx.Sprite.Mvc.csproj" />
+  </ItemGroup>
+</Project>
