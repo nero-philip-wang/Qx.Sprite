@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <NoWarn>NU1903</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Respository\Repository2.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Yitter.IdGenerator" Version="1.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Qx.Sprite.Core\Qx.Sprite.Core.csproj" />
+    <ProjectReference Include="..\Qx.Sprite.ObjectMapper.Mapster\Qx.Sprite.ObjectMapper.Mapster.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App_Data\config\*.json" Pack="true">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
+  </ItemGroup>
+</Project>

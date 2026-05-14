@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="10.0.0" />
+	<PackageReference Include="OrchardCore.Localization.Core" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Qx.Sprite.Core\Qx.Sprite.Core.csproj" />
+    <ProjectReference Include="..\Qx.Sprite.ObjectMapper.Mapster\Qx.Sprite.ObjectMapper.Mapster.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,49 @@
+name: Build, Test and Publish
+
+on:
+  push:
+    branches:
+      - main
+      - TestActions
+  pull_request:
+    branches:
+      - main
+      - TestActions
+
+env:
+  DOTNET_VERSION: '10.0.x'
+  NUGET_KEY: ${{ secrets.NEGET_KEY }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore Qx.Sprite.sln
+
+      - name: Build Release
+        run: dotnet build Qx.Sprite.sln -c Release --no-restore
+
+      - name: Run tests
+        run: dotnet test Qx.Sprite.sln -c Release --no-build --verbosity normal
+
+      - name: Pack NuGet packages
+        run: dotnet pack Qx.Sprite.sln -c Release --no-build -p:PackageOutputPath=./Package/
+
+      - name: Publish to NuGet
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/TestActions'
+        run: |
+          for pkg in Package/*.nupkg; do
+            dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --api-key $NUGET_KEY --skip-duplicate
+          done
+        env:
+          NUGET_KEY: ${{ secrets.NEGET_KEY }}

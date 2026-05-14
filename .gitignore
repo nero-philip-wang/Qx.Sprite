@@ -1,0 +1,12 @@
+*.suo
+*.user
+*.log
+*.nupkg
+!*.log/
+.vs
+obj
+bin
+App_Data
+/.claude
+/.trae
+

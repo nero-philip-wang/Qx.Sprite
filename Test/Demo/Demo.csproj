@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Qx.Sprite.EnumToDictionary" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.Permission" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.Core" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.Serilog.SQLite" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.AppIdAuth" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.Cap" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.HangfireJob" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.JwtAuth" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.MemoryCache" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.Mvc" Version="10.*" />
+    <PackageReference Include="Qx.Sprite.Swagger" Version="10.*" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" Version="10.0.1" />
+		<PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="10.0.1" />
+		<PackageReference Include="Hangfire.PostgreSql" Version="1.21.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="10.0.7" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.1" />
+	</ItemGroup>
+</Project>

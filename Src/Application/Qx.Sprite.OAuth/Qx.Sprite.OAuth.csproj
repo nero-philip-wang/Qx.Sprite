@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Senparc.Weixin" Version="6.23.1" />
+    <PackageReference Include="Senparc.Weixin.MP" Version="16.24.2" />
+    <PackageReference Include="Senparc.Weixin.WxOpen" Version="3.25.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Qx.Sprite.Core\Qx.Sprite.Core.csproj" />
+    <ProjectReference Include="..\..\System\Qx.Sprite.DDD\Qx.Sprite.DDD.csproj" />
+    <ProjectReference Include="..\..\System\Qx.Sprite.EFCore\Qx.Sprite.EFCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App_Data\config\*.json" Pack="true">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+<Project>
+	<!-- 语言公共头 -->
+	<Import Project="$(RepoRoot)./Properties/qx_common.props" />
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- 根目录 -->
+		<RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+		<!-- pack 生成地址 -->
+		<PackageOutputPath>$(RepoRoot)Package/</PackageOutputPath>
+		<!-- xml目录 -->
+		<DocumentationFile>$(RepoRoot)bin/$(MSBuildProjectName).xml</DocumentationFile>
+	</PropertyGroup>
+
+	<!-- Version -->
+	<PropertyGroup>
+		<!-- Version for binaries, nuget packages generated from this repo. -->
+		<MajorVersion>10</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<BuildVersion>5</BuildVersion>
+		<Revision>6</Revision>
+		<Version>$(MajorVersion).$(MinorVersion).$(BuildVersion).$(Revision)</Version>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<AssemblyFileVersion>$(Version)</AssemblyFileVersion>
+		<FileVersion>$(Version)</FileVersion>
+	</PropertyGroup>
+</Project>

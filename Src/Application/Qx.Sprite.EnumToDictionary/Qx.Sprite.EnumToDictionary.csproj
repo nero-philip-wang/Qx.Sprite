@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+  	<ProjectReference Include="..\..\Core\Qx.Sprite.Core\Qx.Sprite.Core.csproj" />
+  	<ProjectReference Include="..\..\System\Qx.Sprite.DDD\Qx.Sprite.DDD.csproj" />
+  	<ProjectReference Include="..\..\System\Qx.Sprite.Mvc\Qx.Sprite.Mvc.csproj" />
+  </ItemGroup>
+	
+</Project>

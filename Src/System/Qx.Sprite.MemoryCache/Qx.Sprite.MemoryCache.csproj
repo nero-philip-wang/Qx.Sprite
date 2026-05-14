@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="EasyCaching.Core" Version="1.9.2" />
+	<PackageReference Include="EasyCaching.InMemory" Version="1.9.2" />
+	<PackageReference Include="EasyCaching.Redis" Version="1.9.2" />
+	<PackageReference Include="Scrutor" Version="7.0.0" />
+	<PackageReference Include="System.Drawing.Common" Version="10.0.0" />
+  </ItemGroup>
+
+
+	<ItemGroup>
+		<None Include="App_Data\config\*.json" Pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Qx.Sprite.Core\Qx.Sprite.Core.csproj" />
+  </ItemGroup>
+
+</Project>

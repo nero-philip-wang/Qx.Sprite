@@ -1,0 +1,100 @@
+﻿// ------------------------------------------------------------
+// Copyright (c) Qx.
+// Licensed under the MIT License.
+// ------------------------------------------------------------
+
+namespace Qx.Sprite.Core
+{
+    using System.IO;
+    using System.Text.Encodings.Web;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
+    using System.Text.Json.Serialization.Metadata;
+
+    /// <summary>
+    /// json 格式化配置工具
+    /// </summary>
+    public static partial class JsonUtils
+    {
+        /// <summary>
+        /// Gets or sets a value indicating whether 枚举输出为字符串
+        /// </summary>
+        public static bool IsEnumAsString { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether 位表示枚举输出为字符串数组
+        /// </summary>
+        public static bool IsFlagEnumAsStringArray { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether 使用ExtraDataJsonConverter
+        /// </summary>
+        public static bool IsExtraDataConverter { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether long 输出为字符串
+        /// </summary>
+        public static bool IsLongAsString { get; set; } = true;
+
+        /// <summary>
+        /// Gets 获取json系列化配置
+        /// </summary>
+        public static JsonSerializerOptions JsonOptions
+        {
+            get
+            {
+                if (field == null)
+                {
+                    var options = new JsonSerializerOptions()
+                    {
+                        // 不转义html
+                        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+
+                        // 小驼峰
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+
+                        // 忽略循环引用
+                        ReferenceHandler = ReferenceHandler.IgnoreCycles,
+
+                        // 保留默认值
+                        DefaultIgnoreCondition = JsonIgnoreCondition.Never,
+
+                        // long 读取
+                        NumberHandling = JsonNumberHandling.AllowReadingFromString,
+
+                        // 序列化字段
+                        IncludeFields = false,
+
+                        // 读取时忽略大小写
+                        PropertyNameCaseInsensitive = true,
+
+                        TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
+                    };
+                    if (IsLongAsString)
+                    {
+                        options.Converters.Add(new LongStringConverter());
+                        options.Converters.Add(new NullableLongStringConverter());
+                    }
+
+                    if (IsFlagEnumAsStringArray)
+                    {
+                        options.Converters.Add(new FlagsEnumConverter());
+                    }
+                    else if (IsEnumAsString)
+                    {
+                        options.Converters.Add(new JsonStringEnumConverter());
+                    }
+
+                    if (IsExtraDataConverter)
+                    {
+                        options.Converters.Add(new ExtraDataJsonConverter());
+                    }
+
+                    field = options;
+                }
+
+                return field;
+            }
+        }
+    }
+}

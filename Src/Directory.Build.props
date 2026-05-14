@@ -1,0 +1,7 @@
+<Project>
+	<!-- 语言公共头 -->
+	<Import Project="../Directory.Build.props" />
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+</Project>
